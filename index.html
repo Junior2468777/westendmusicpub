@@ -48,46 +48,50 @@
     }
 
     /* Navigation Links */
-    nav {
-      display: flex;
-      gap: 20px;
-    }
+   nav {
+    display: flex;
+    gap: 20px;
+    position: relative; /* Add position relative */
+    z-index: 10; /* Ensure nav links are above other elements */
+  }
 
-    nav a {
-      color: #fff; /* White text for links */
-      text-decoration: none;
-      font-size: 18px;
-      transition: color 0.3s ease;
-    }
+  nav a {
+    color: #fff; /* White text for links */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
 
-    nav a:hover {
-      color: #ff007f; /* Neon pink on hover */
-    }
+  nav a:hover {
+    color: #ff007f; /* Neon pink on hover */
+  }
 
     /* Slideshow */
-    .slideshow {
-      position: relative;
-      max-width: 100%;
-      overflow: hidden;
-      margin-top: 20px;
-    }
+      .slideshow {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+  }
 
-    .slideshow img {
-      width: 100%;
-      display: none;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
-    }
+  .slideshow img {
+    width: 100%;
+    display: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+    z-index: 1; /* Make sure the slideshow is behind the nav */
+  }
 
-    .slideshow img.active {
-      display: block;
-      animation: fade 2s;
-    }
+  .slideshow img.active {
+    display: block;
+    animation: fade 2s;
+  }
 
-    @keyframes fade {
-      from { opacity: 0.4; }
-      to { opacity: 1; }
-    }
+  @keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+  }
+
 
     /* Responsive Design */
     @media (max-width: 768px) {

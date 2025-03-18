@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Events - West End Music Pub</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #10002b; /* Deep purple background */
+      color: #fff; /* White text for contrast */
+    }
+
+    /* Header and Logo */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #240046; /* Dark purple header */
+      box-shadow: 0 2px 10px rgba(255, 0, 255, 0.5);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff007f; /* Neon pink text for logo */
+    }
+
+    .logo span {
+      color: #00ffff; /* Neon cyan accent for contrast */
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 4px 0;
+    }
+
+    /* Navigation Links */
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff007f;
+    }
+
+    /* Events Grid */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .events-grid img {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .events-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Zoomed Image Overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .overlay .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #240046;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #ff007f;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #240046;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(255, 0, 255, 0.5);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      West End <span>Music Pub</span>
+    </div>
+    <div class="hamburger" onclick="toggleNav()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="menu.html">Menu</a>
+      <a href="events.html">Upcoming Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="hours.html">Trading Hours</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <div class="events-grid">
+    <img src=events1.jpg alt="Event 1" onclick="zoomImage('event1.jpg')">
+    <img src=events2.jpg alt="Event 2" onclick="zoomImage('event2.jpg')">
+    <img src=events3.jpg alt="Event 3" onclick="zoomImage('event3.jpg')">
+  </div>
+
+  <div class="overlay" id="overlay">
+    <span class="close" onclick="closeZoom()">&times;</span>
+    <img id="zoomed-img" src="" alt="Zoomed Image">
+  </div>
+
+  <footer>
+    <p>&copy; 2023 West End Music Pub. All rights reserved.</p>
+    <p>Follow us on <a href="#">Facebook</a>, <a href="#">Instagram</a>, and <a href="#">Twitter</a>.</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('nav').classList.toggle('active');
+    }
+    function zoomImage(src) {
+      document.getElementById('zoomed-img').src = src;
+      document.getElementById('overlay').style.display = 'flex';
+    }
+    function closeZoom() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+
